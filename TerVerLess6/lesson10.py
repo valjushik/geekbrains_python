@@ -55,14 +55,16 @@ print("Критическое значение распределения Фиш
 # добавление значений
 football = np.append(football, [np.mean(football)]*3)
 hockey = np.append(hockey, [np.mean(hockey)]*2)
+print(football)
+print(hockey)
 
-# однофакторный дисперсионный анализ
-f_value, p_value = f_oneway(football, hockey, weightlifting)
-print("F-статистика: ", f_value)
-print("p-value: ", p_value)
 
 # post hoc тест Тьюки
 data = np.concatenate([football, hockey, weightlifting])
 labels = ['football']*len(football) + ['hockey']*len(hockey) + ['weightlifting']*len(weightlifting)
 tukey_results = pairwise_tukeyhsd(data, labels, 0.05)
 print(tukey_results)
+
+
+
+
